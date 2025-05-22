@@ -16,6 +16,17 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const path = require('path');
 
+const adminController = require('./controllers/admin');
+const shopController = require('./controllers/shop');
+
+app.get('/', shopController.getProducts);
+
+app.get('/', (req, res) => {
+    res.render('index', {
+        name: 'yes'
+    });
+})
+
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
